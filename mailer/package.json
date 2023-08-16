@@ -1,0 +1,18 @@
+{
+  "name": "mailer",
+  "version": "1.0.0",
+  "description": "Mailing microservice for the app MASC",
+  "main": "index.js",
+  "repository": "https://github.com/AV3RG/MASC-microservices",
+  "author": "AV3RG",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.9",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "kafkajs": "^2.2.4",
+    "nodemailer": "^6.9.4"
+  }
+}
