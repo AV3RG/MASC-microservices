@@ -21,7 +21,7 @@ export async function setupKafkaListener() {
         fromBeginning: true,
     })
     await consumer.run({
-        eachMessage: async ({topic: string, partition, message}) => {
+        eachMessage: async ({topic, partition, message}) => {
             logRequest(topic, partition, message);
             if (!message.value) return;
             const { to, template, params } = JSON.parse(message.value.toString());
