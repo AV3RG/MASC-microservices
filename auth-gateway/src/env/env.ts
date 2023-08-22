@@ -9,3 +9,7 @@ export const KAFKA_ENV = {
     "CLIENT_ID": process.env.CLIENT_ID,
     "BROKERS": process.env.BROKERS,
 }
+
+export const REDIS_ENV = {
+    "REDIS_URLS": process.env.REDIS_URLS,
+}

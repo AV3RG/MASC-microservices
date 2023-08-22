@@ -4,7 +4,8 @@ interface CryptoConfig {
     algorithm: Algorithm,
     issuer: string,
     clockTolerance: number,
-    accessTokenExpiration: string,
+    accessTokenExpirationString: string,
+    accessTokenExpirationNum: number,
     refreshTokenExpiration: string,
 }
 
@@ -12,6 +13,7 @@ export const cryptoConfig: CryptoConfig = {
     algorithm: "HS256",
     issuer: "masc-auth-gateway",
     clockTolerance: 60,
-    accessTokenExpiration: "1h",
+    accessTokenExpirationString: "1h",
+    accessTokenExpirationNum: 60 * 60,
     refreshTokenExpiration: "30d",
 }

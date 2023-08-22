@@ -38,7 +38,8 @@ export async function registerNewUser(req: Request, res: Response) {
         );
         await newUser.save();
         deleteOtp(username);
-        tokenPair.sendInResponse(res)
+        tokenPair.sendInResponse(res);
+        await tokenPair.cacheAccessToken();
     } catch (err) {
         res.status(500).send("Internal server error");
     }

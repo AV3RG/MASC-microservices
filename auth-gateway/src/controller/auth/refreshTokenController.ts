@@ -31,6 +31,7 @@ export async function refreshTokenPair(req: Request, res: Response) {
     await addUsedRefreshToken(userByName, uuid, iat);
     const tokenPair = await TokenPair.generateNew(username);
     tokenPair.sendInResponse(res);
+    await tokenPair.cacheAccessToken();
 }
 
 export default refreshTokenPair;

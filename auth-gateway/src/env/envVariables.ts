@@ -5,6 +5,8 @@ const requiredEnvVariables = [
     //KAFKA
     "CLIENT_ID",
     "BROKERS",
+    //REDIS
+    "REDIS_URLS",
 ]
 
 const optionalEnvVariables: Map<string, string> = new Map()
