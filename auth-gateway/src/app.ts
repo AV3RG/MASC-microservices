@@ -1,6 +1,7 @@
 import express, {Express} from "express";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/authRouter";
+import {proxyIncoming} from "./controller/proxy/proxyController";
 
 class App {
 
@@ -10,6 +11,7 @@ class App {
         this.server = express();
         this.setupBaseMiddlewares();
         this.setupPreAuthRoutes();
+        this.setupProxying();
     }
 
     private setupBaseMiddlewares() {
@@ -21,6 +23,8 @@ class App {
         this.server.use("/auth", authRouter);
     }
 
-
+    private setupProxying() {
+        this.server.use("**/*", proxyIncoming)
+    }
 
 }
