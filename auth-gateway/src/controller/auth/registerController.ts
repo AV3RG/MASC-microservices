@@ -6,7 +6,7 @@ import {TokenPair} from "../../auth/tokenPair";
 import {registerConfig} from "../../config/registerConfig";
 import {otpConfig} from "../../config/otpConfig";
 
-const registerNewUser = async (req: Request, res: Response) => {
+export async function registerNewUser(req: Request, res: Response) {
     const { username, otp, email } = req.body;
     if (!username || !otp || !email) {
         res.status(400).send("Missing username/otp/email");
@@ -44,7 +44,7 @@ const registerNewUser = async (req: Request, res: Response) => {
     }
 }
 
-const validityChecks = (username: string, otp: string, email: string): [boolean, string] => {
+function validityChecks(username: string, otp: string, email: string): [boolean, string] {
     if (username.toLowerCase() !== username) return [false, "Username must be lowercase"];
     const userSizeMin = registerConfig.usernameMinLength;
     const userSizeMax = registerConfig.usernameMaxLength;
@@ -57,15 +57,15 @@ const validityChecks = (username: string, otp: string, email: string): [boolean,
     return [true, ""];
 }
 
-const checkForDuplicates = async (username: string): Promise<boolean> => {
+async function checkForDuplicates(username: string): Promise<boolean> {
     const possibleDuplicate = await User.findOne({username: username}).exec();
     return possibleDuplicate !== null;
 }
 
-const createUserDocument = (
+function createUserDocument(
     username: string,
     email: string
-): IUser => {
+): IUser {
     return <IUser>new User({
         credentials: {
             username: username,
@@ -74,5 +74,3 @@ const createUserDocument = (
         email: email
     })
 }
-
-export default registerNewUser;
