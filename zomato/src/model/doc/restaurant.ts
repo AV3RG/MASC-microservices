@@ -59,6 +59,10 @@ const menuItemSchema = new Schema({
     category: {
         type: String,
         required: true,
+    },
+    imageUrls: {
+        type: [String],
+        required: false,
     }
 })
 
@@ -92,6 +96,13 @@ const credentialsSchema = new Schema({
     },
 })
 
+const mediaSchema = new Schema({
+    baseImageUrl: {
+        type: String,
+        required: true,
+    },
+})
+
 const restaurantSchema = new Schema({
     information: {
         type: informationSchema,
@@ -111,6 +122,10 @@ const restaurantSchema = new Schema({
         type: credentialsSchema,
         required: true,
     },
+    media: {
+        type: mediaSchema,
+        required: true,
+    }
 })
 
 export default mongoose.model<IRestaurant>("Restaurant", restaurantSchema);

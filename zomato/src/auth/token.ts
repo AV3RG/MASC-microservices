@@ -1,7 +1,6 @@
 import {SignOptions} from "jsonwebtoken";
 import {cryptoConfig} from "../config/cryptoConfig";
 import {keySign} from "./crypto/keySign";
-import {randomUUID} from "../misc/generateUUID";
 import {Response} from "express";
 
 const accessTokenSignOptions: SignOptions = {
@@ -22,7 +21,6 @@ export class Token {
     }
 
     static async generateNew(username: string, id: string): Promise<Token> {
-        const uuid = randomUUID();
         const accessToken = await keySign({ username, id }, accessTokenSignOptions);
         return new Token(accessToken, username, id);
     }

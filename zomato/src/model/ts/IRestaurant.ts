@@ -3,6 +3,7 @@ export default interface IRestaurant extends Document {
     menu: Array<MenuItem>,
     currentStatus: RestaurantStatus,
     credentials: Credentials,
+    media: Media,
 }
 
 interface Information {
@@ -30,6 +31,8 @@ interface MenuItem {
     discountedPrice: number,
     availableTimeSlots: Array<TimeSlot>,
     inventoryItemsLeft: InventoryData,
+    category: string,
+    imageUrls: Array<String>,
 }
 
 interface RestaurantStatus {
@@ -40,4 +43,8 @@ interface Credentials {
     username: string,
     passwordHash: string,
     salt: string,
+}
+
+interface Media {
+    baseImageUrl: string,
 }
