@@ -1,16 +1,16 @@
 import { Request, Response } from 'express';
 import {cookieConfig} from "../../config/cookieConfig";
-import {standardKeyVerify} from "../../auth/crypto/keySign";
 import User from "../../model/doc/user";
 import IUser, {addUsedRefreshToken} from "../../model/ts/IUser";
 import {TokenPair} from "../../auth/tokenPair";
 import {checkForTokenReuse} from "../../misc/auth";
+import {standardKeyDecrypt} from "../../auth/crypto/keyDecrypt";
 
 export async function refreshTokenPair(req: Request, res: Response) {
     const cookies = req.cookies;
     if (!cookies || !cookies[cookieConfig.refreshTokenName]) res.sendStatus(401);
     const refreshToken = cookies[cookieConfig.refreshTokenName];
-    const valid = await standardKeyVerify(refreshToken, res);
+    const valid = await standardKeyDecrypt(refreshToken, res);
     if (!valid) return;
     const {username, uuid, iat} = <any>valid.payload
     if (!username || !uuid) {

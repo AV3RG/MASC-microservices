@@ -1,18 +1,18 @@
 import {Request, Response} from "express";
 import {cookieConfig} from "../../config/cookieConfig";
-import {standardKeyVerify} from "../../auth/crypto/keySign";
 import User from "../../model/doc/user";
 import IUser, {addUsedRefreshToken} from "../../model/ts/IUser";
 import moment from "moment";
 import {checkForTokenReuse} from "../../misc/auth";
 import {cryptoConfig} from "../../config/cryptoConfig";
+import {standardKeyDecrypt} from "../../auth/crypto/keyDecrypt";
 
 export async function handleLogout (req: Request, res: Response) {
     const cookies = req.cookies;
     const cookieName = cookieConfig.refreshTokenName;
     if (!cookies || !cookies[cookieName]) res.status(204);
     const refreshToken = cookies[cookieName];
-    const valid = await standardKeyVerify(refreshToken, res);
+    const valid = await standardKeyDecrypt(refreshToken, res);
     if (!valid) return;
     const {username, uuid, iat} = <any>valid.payload
     if (!username || !uuid) {

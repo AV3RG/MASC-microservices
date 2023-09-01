@@ -1,7 +1,7 @@
 import {NextFunction, Request, Response} from "express";
 import proxy from "express-http-proxy";
-import {standardKeyVerify} from "../../auth/crypto/keySign";
 import {proxyConfig} from "../../config/proxyConfig";
+import {standardKeyDecrypt} from "../../auth/crypto/keyDecrypt";
 
 export async function proxyIncoming(req: Request, res: Response, next: NextFunction) {
     const target = getProxyTarget(req.path);
@@ -19,7 +19,7 @@ export async function proxyIncoming(req: Request, res: Response, next: NextFunct
         return;
     }
     const token = authHeader.slice(7);
-    const valid = await standardKeyVerify(token, res);
+    const valid = await standardKeyDecrypt(token, res);
     if (!valid) return;
     await proxy(target, {})(req, res, next);
 }
