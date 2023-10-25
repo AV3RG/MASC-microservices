@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ongoing_events",
+  "info": {
+    "singularName": "ongoing-event",
+    "pluralName": "ongoing-events",
+    "displayName": "Ongoing Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "registration_deadline": {
+      "type": "datetime",
+      "required": true
+    },
+    "event_start_date": {
+      "type": "date",
+      "required": true
+    },
+    "event_start_time": {
+      "type": "time",
+      "required": false
+    },
+    "event_end_date": {
+      "type": "date",
+      "required": true
+    },
+    "event_end_time": {
+      "type": "time"
+    },
+    "prize_pool": {
+      "type": "integer",
+      "required": false
+    },
+    "awards": {
+      "type": "string"
+    },
+    "venue": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "team_size": {
+      "type": "integer",
+      "required": true
+    },
+    "other_headings": {
+      "type": "json"
+    },
+    "uuid": {
+      "type": "customField",
+      "regex": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "required": true,
+      "customField": "plugin::field-uuid.uuid"
+    },
+    "calendar_event": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::calendar-event.calendar-event"
+    },
+    "registered_user": {
+      "displayName": "registered_user",
+      "type": "component",
+      "repeatable": true,
+      "component": "registered-user.registered-user",
+      "required": true
+    }
+  }
+}

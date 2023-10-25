@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transportation_providers",
+  "info": {
+    "singularName": "transportation-provider",
+    "pluralName": "transportation-providers",
+    "displayName": "Transportation Provider"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "contact_info": {
+      "type": "biginteger",
+      "required": true
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbarBaloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

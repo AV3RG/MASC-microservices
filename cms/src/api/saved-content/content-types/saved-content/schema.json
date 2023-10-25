@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "saved_contents",
+  "info": {
+    "singularName": "saved-content",
+    "pluralName": "saved-contents",
+    "displayName": "Saved Content",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "internships": {
+      "type": "json",
+      "required": true
+    },
+    "ongoing_events": {
+      "type": "json",
+      "required": true
+    },
+    "calender_events": {
+      "type": "json",
+      "required": true
+    },
+    "past_year_papers": {
+      "type": "json",
+      "required": true
+    },
+    "username": {
+      "type": "string"
+    }
+  }
+}

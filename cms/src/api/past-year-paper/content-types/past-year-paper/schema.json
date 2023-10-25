@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "past_year_papers",
+  "info": {
+    "singularName": "past-year-paper",
+    "pluralName": "past-year-papers",
+    "displayName": "Past Year Paper"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "file": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Year": {
+      "type": "enumeration",
+      "enum": [
+        "first",
+        "second",
+        "third",
+        "fourth"
+      ],
+      "required": true
+    },
+    "course": {
+      "type": "enumeration",
+      "enum": [
+        "btech",
+        "mtech",
+        "bba",
+        "mba"
+      ],
+      "required": true
+    },
+    "semester": {
+      "type": "enumeration",
+      "enum": [
+        "first",
+        "second",
+        "third",
+        "fourth",
+        "fifth",
+        "sixth",
+        "seventh",
+        "eighth"
+      ],
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "mte1",
+        "mte2",
+        "ete"
+      ],
+      "required": true
+    }
+  }
+}

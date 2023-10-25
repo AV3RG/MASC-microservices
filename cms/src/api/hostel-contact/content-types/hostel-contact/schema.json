@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hostel_contacts",
+  "info": {
+    "singularName": "hostel-contact",
+    "pluralName": "hostel-contacts",
+    "displayName": "Hostel Contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "designation": {
+      "type": "string",
+      "required": true
+    },
+    "contact_primary": {
+      "type": "biginteger"
+    },
+    "contact_others": {
+      "type": "json"
+    }
+  }
+}

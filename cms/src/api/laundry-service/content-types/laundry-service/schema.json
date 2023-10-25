@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "laundry_services",
+  "info": {
+    "singularName": "laundry-service",
+    "pluralName": "laundry-services",
+    "displayName": "Laundry Service",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "contact_number": {
+      "type": "biginteger",
+      "required": true
+    },
+    "bag_id": {
+      "type": "string"
+    }
+  }
+}

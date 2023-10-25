@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "internships",
+  "info": {
+    "singularName": "internship",
+    "pluralName": "internships",
+    "displayName": "Internship",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "tags": {
+      "type": "json",
+      "required": true
+    },
+    "skills": {
+      "type": "json"
+    },
+    "stipend": {
+      "type": "string",
+      "required": true
+    },
+    "duration": {
+      "type": "string",
+      "required": true
+    },
+    "organization": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "uuid": {
+      "type": "customField",
+      "regex": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "customField": "plugin::field-uuid.uuid"
+    },
+    "description": {
+      "type": "customField",
+      "required": true,
+      "options": {
+        "preset": "toolbarBaloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

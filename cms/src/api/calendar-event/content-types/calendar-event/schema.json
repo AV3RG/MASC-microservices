@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "calendar_events",
+  "info": {
+    "singularName": "calendar-event",
+    "pluralName": "calendar-events",
+    "displayName": "Calendar Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "start_date": {
+      "type": "date",
+      "required": true
+    },
+    "end_date": {
+      "type": "date",
+      "required": true
+    },
+    "tags": {
+      "type": "json",
+      "required": true
+    }
+  }
+}

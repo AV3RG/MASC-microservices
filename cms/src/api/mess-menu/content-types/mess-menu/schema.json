@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mess_menus",
+  "info": {
+    "singularName": "mess-menu",
+    "pluralName": "mess-menus",
+    "displayName": "Mess Menu"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "time": {
+      "type": "enumeration",
+      "enum": [
+        "breakfast",
+        "lunch",
+        "hi-tea",
+        "dinner"
+      ],
+      "required": true
+    },
+    "items": {
+      "type": "json",
+      "required": true
+    }
+  }
+}
